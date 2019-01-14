@@ -22,13 +22,13 @@ class SeasonDisplay extends React.Component {
             winter: {text: 'Burr, it\'s chilly!', iconName: 'snowflake' }
         }
 
-        const season = seasonConfig[this.getSeason(this.props.lat, this.props.month)];
+        const season = this.getSeason(this.props.lat, this.props.month);
 
         return (
-            <div className={`season-display ${this.getSeason(this.props.lat, this.props.month)}`}>
-                <i className={`${season.iconName} icon-left icon massive`} />
-                <h1>{season.text}</h1>
-                <i className={`${season.iconName} icon-right icon massive`} />
+            <div className={`season-display ${season}`}>
+                <i className={`${seasonConfig[season].iconName} icon-left icon massive`} />
+                <h1>{seasonConfig[season].text}</h1>
+                <i className={`${seasonConfig[season].iconName} icon-right icon massive`} />
             </div>
         );
     }
